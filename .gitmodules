@@ -1,3 +1,6 @@
 [submodule "proGEN_Iter/ThirdParty/spdlog"]
 	path = proGEN_Iter/ThirdParty/spdlog
 	url = https://github.com/Saltylanguage/spdlog
+[submodule "proGEN_Iter/ThirdParty/spdlog1_2_0"]
+	path = proGEN_Iter/ThirdParty/spdlog1_2_0
+	url = https://github.com/gabime/spdlog.git
