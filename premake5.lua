@@ -67,14 +67,17 @@ project "ProGEN_Iter"
 
     filter "configurations:Debug"
         defines "GEN_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "GEN_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "GEN_DIST"
+        buildoptions "/MD"
         optimize "On"
 
 
@@ -115,12 +118,15 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "GEN_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "GEN_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "GEN_DIST"
-            symbols "On"
+        buildoptions "/MD"
+        optimize "On"

@@ -10,7 +10,4 @@
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\Sandboxsrc" />
-  </ItemGroup>
 </Project>
