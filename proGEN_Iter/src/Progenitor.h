@@ -2,7 +2,6 @@
 
 // For use by Progenitor Applications
 
-#include <stdio.h>
 #include "Application.h"
 #include "Squak.h"
 

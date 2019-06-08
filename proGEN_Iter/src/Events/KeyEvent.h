@@ -5,7 +5,6 @@
 
 namespace Gen
 {
-
 	class GEN_API KeyEvent : public Event
 	{
 	public:
@@ -27,6 +26,7 @@ namespace Gen
 		{
 			std::stringstream ss;
 			ss << "KeyPressedEvennt: " << m_KeyCode << " (" << m_RepeatCount << " repeats)";
+			return ss.str();
 		}
 	private:
 		int m_RepeatCount;

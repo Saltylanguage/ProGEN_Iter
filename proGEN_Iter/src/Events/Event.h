@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Core.h"
+// TODO - fix pathing & additional include paths
+#include "../Core.h"
 #include <string>
 #include <functional>
 
@@ -73,6 +74,7 @@ namespace Gen
 			{
 				m_Event.m_Handled = func(*(T*)&m_Event);
 			}
+			return m_Event.m_Handled;
 		}
 
 	private:

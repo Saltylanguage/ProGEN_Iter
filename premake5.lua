@@ -8,19 +8,25 @@ workspace "ProGEN_Iter"
         "Dist"
     }
 
-outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+-- Inclue directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "ProGEN_Iter/ThirdParty/GLFW/include"
+
+include "ProGEN_Iter/ThirdParty/GLFW"
 
 project "ProGEN_Iter"
     location "ProGEN_Iter"
     kind "SharedLib"
     language "C++"
     
-    targetdir ("bin/" .. outputDir .. "/%{prj.name}")
-    objdir ("bin-int/" .. outputDir .. "/%{prj.name}")
+    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
     files
     {
-        pchheader "GenPCH.h",
+        pchheader "GenPCH.h",   
         pchsource "ProGEN_Iter/src/GenPCH.cpp"
     }
 
@@ -32,7 +38,15 @@ project "ProGEN_Iter"
 
     includedirs 
     {
-        "%{prj.name}/ThirdParty/spdlog/include"
+        "%{prj.name}src",
+        "%{prj.name}/ThirdParty/spdlog/include",
+        "%{IncludeDir.GLFW}"
+    }
+
+    links
+    {
+        "GLFW",
+        "opengl32.lib"
     }
 
     filter "system:windows"
@@ -40,16 +54,16 @@ project "ProGEN_Iter"
         staticruntime "On"
         systemversion "latest"
 
-        defines
-        {
-            "GEN_PLATFORM_WINDOWS",
-            "GEN_BUILD_DLL"
-        }
+    defines
+    {
+        "GEN_PLATFORM_WINDOWS",
+        "GEN_BUILD_DLL"
+    }
 
-        postbuildcommands
-        {
-            ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputDir .. "/Sandbox")
-        }
+    postbuildcommands
+    {
+        ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+    }
 
     filter "configurations:Debug"
         defines "GEN_DEBUG"
@@ -69,12 +83,11 @@ project "Sandbox"
     kind "ConsoleApp"
     language "C++"
     
-    targetdir ("bin/" .. outputDir .. "/%{prj.name}")
-    objdir ("bin-int/" .. outputDir .. "/%{prj.name}")
+    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
     files
     {
-        "%{prj.name}src",
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp"
     }
@@ -95,10 +108,10 @@ project "Sandbox"
         staticruntime "On"
         systemversion "latest"
 
-        defines
-        {
-            "GEN_PLATFORM_WINDOWS"
-        }
+    defines
+    {
+        "GEN_PLATFORM_WINDOWS"
+    }
 
     filter "configurations:Debug"
         defines "GEN_DEBUG"

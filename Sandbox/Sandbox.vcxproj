@@ -130,9 +130,6 @@
     <ClCompile Include="src\Sandbox.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Sandboxsrc" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ProGEN_Iter\ProGEN_Iter.vcxproj">
       <Project>{43F293E9-AFA7-0CDF-389C-06B6A45003E3}</Project>
     </ProjectReference>

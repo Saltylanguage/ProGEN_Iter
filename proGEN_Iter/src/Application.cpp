@@ -1,22 +1,40 @@
 #include "GenPCH.h"
 #include "Application.h"
-#include "Events/ApplicationEvent.h"
 #include "Squak.h"
-
+#include <GLFW/glfw3.h>
 
 namespace Gen
 {
-	Application::Application(){}
+#define BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)
+
+	Application::Application()
+	{
+		WindowProps props = WindowProps("Gen_gine", 1920, 1080);
+		m_Window = std::unique_ptr<Window>(Window::Create(props));
+		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
+	}
 	Application::~Application(){}
+
+	void Application::OnEvent(Event& e)
+	{
+		SQUAK_CORE_INFO("{0}", e);
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowClose));
+	}
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1200, 800);
-		if (e.IsInCategory(EventCategoryApplication))
+		while (m_Running)
 		{
-			SQUAK_INFO(e.ToString());
+			glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+			glClear(GL_COLOR_BUFFER_BIT);
+			m_Window->OnUpdate();
 		}
+	}
 
-		while (true);
+	bool Application::OnWindowClose(WindowCloseEvent& e)
+	{
+		m_Running = false;
+		return true;
 	}
 }
