@@ -3,7 +3,7 @@
 class Sandbox : public Gen::Application
 {
 public:
-	Sandbox(){}
+	Sandbox():Application(){}
 	~Sandbox(){}
 };
 

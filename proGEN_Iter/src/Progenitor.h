@@ -3,8 +3,9 @@
 // For use by Progenitor Applications
 
 #include <stdio.h>
-#include "Progenitor/Application.h"
+#include "Application.h"
+#include "Squak.h"
 
 // ---------- Entry Point --------
-#include "Progenitor/EntryPoint.h"
+#include "EntryPoint.h"
 // -------------------------------
