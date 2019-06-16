@@ -11,27 +11,27 @@ namespace Gen
 		inline int GetKeyCode() const { return m_KeyCode; }
 
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
-
 	protected:
 		KeyEvent(int keyCode) : m_KeyCode(keyCode) {}
 		int m_KeyCode;
 	};
 
-	class GEN_API KeyPressEvent : public KeyEvent
+	class GEN_API KeyPressedEvent : public KeyEvent
 	{
 	public:
-		KeyPressEvent(int keyCode, int repeatCount) : KeyEvent(keyCode), m_RepeatCount(repeatCount) {}
+		KeyPressedEvent(int keyCode, int repeatCount) : KeyEvent(keyCode) {}
 
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "KeyPressedEvennt: " << m_KeyCode << " (" << m_RepeatCount << " repeats)";
+			ss << "KeyPressedEvent: " << m_KeyCode << " (" << m_RepeatCount << " repeats)";
 			return ss.str();
 		}
+		EVENT_CLASS_TYPE(KeyPressed)
+
 	private:
 		int m_RepeatCount;
-
-		EVENT_CLASS_TYPE(KeyPressed)
+		
 	};
 
 	class GEN_API KeyReleaseEvent : public KeyEvent
@@ -47,6 +47,21 @@ namespace Gen
 		}
 
 		EVENT_CLASS_TYPE(KeyReleased)
+	};
+
+	class GEN_API KeyTypedEvent : public KeyEvent
+	{
+	public:
+		KeyTypedEvent(int keyCode) : KeyEvent(keyCode) {}
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "KeyTypedEvent: " << m_KeyCode;
+			return ss.str();
+		}
+
+		EVENT_CLASS_TYPE(KeyTyped)
 	};
 
 }

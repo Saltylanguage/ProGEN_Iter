@@ -1,11 +1,20 @@
 #pragma once
 #include "Core.h"
 #include "Window.h"
+#include "GLFW/glfw3.h"
 
-#include <GLFW/glfw3.h>
 
 namespace Gen
 {
+	struct WindowData
+	{
+		std::string Title;
+		unsigned int Width, Height;
+		bool VSync;
+
+		EventCallbackFn EventCallback;
+	};
+
 	class GEN_API WindowsWindow : public Window
 	{
 	public:
@@ -23,21 +32,12 @@ namespace Gen
 		inline bool IsVSync() const override { return m_Data.VSync; }
 
 
+
 	private:
 		virtual void Init(const WindowProps& props);
 		virtual void Shutdown();
 
-		struct WindowData
-		{
-			std::string Title;
-			unsigned int Width, Height;
-			bool VSync;
-
-			EventCallbackFn EventCallback;
-		};
-
 		GLFWwindow* m_Window;
 		WindowData m_Data;
-
 	};
 }

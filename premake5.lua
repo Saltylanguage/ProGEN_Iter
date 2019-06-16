@@ -13,8 +13,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Inclue directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "ProGEN_Iter/ThirdParty/GLFW/include"
+IncludeDir["Glad"] = "ProGEN_Iter/ThirdParty/Glad/include"
+IncludeDir["imgui"] = "ProGEN_Iter/ThirdParty/imgui"
 
 include "ProGEN_Iter/ThirdParty/GLFW"
+include "ProGEN_Iter/ThirdParty/Glad"
+include "ProGEN_Iter/ThirdParty/imgui"
 
 project "ProGEN_Iter"
     location "ProGEN_Iter"
@@ -38,14 +42,18 @@ project "ProGEN_Iter"
 
     includedirs 
     {
-        "%{prj.name}src",
+        "%{prj.name}/src",
         "%{prj.name}/ThirdParty/spdlog/include",
-        "%{IncludeDir.GLFW}"
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.Glad}",
+        "%{IncludeDir.imgui}"
     }
 
     links
     {
         "GLFW",
+        "Glad",
+        "imgui",
         "opengl32.lib"
     }
 
@@ -57,7 +65,8 @@ project "ProGEN_Iter"
     defines
     {
         "GEN_PLATFORM_WINDOWS",
-        "GEN_BUILD_DLL"
+        "GEN_BUILD_DLL",
+        "GLFW_INCLUDE_NONE"
     }
 
     postbuildcommands
@@ -67,7 +76,7 @@ project "ProGEN_Iter"
 
     filter "configurations:Debug"
         defines "GEN_DEBUG"
-        buildoptions "/MDd"
+        buildoptions "/MD"
         symbols "On"
 
     filter "configurations:Release"
@@ -118,7 +127,7 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "GEN_DEBUG"
-        buildoptions "/MDd"
+        buildoptions "/MD"
         symbols "On"
 
     filter "configurations:Release"

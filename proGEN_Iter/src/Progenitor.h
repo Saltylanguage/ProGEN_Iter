@@ -2,9 +2,10 @@
 
 // For use by Progenitor Applications
 
+#include "Squak.h"
 #include "Application.h"
 #include "Layer.h"
-#include "Squak.h"
+#include "imguiLayer.h"
 
 // ---------- Entry Point --------
 #include "EntryPoint.h"

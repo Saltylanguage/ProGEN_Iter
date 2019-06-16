@@ -4,6 +4,8 @@
 
 namespace Gen
 {
+	using EventCallbackFn = std::function<void(Event&)>;
+
 	struct WindowProps
 	{
 		std::string Title;
@@ -18,7 +20,6 @@ namespace Gen
 	class GEN_API Window
 	{
 	public:
-		using EventCallbackFn = std::function<void(Event&)>;
 
 		virtual ~Window() {}
 

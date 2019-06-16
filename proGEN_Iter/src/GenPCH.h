@@ -13,6 +13,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Core.h"
 #include "Squak.h"
 
 #ifdef GEN_PLATFORM_WINDOWS

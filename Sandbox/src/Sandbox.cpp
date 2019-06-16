@@ -1,6 +1,5 @@
 #include <Progenitor.h>
 
-
 class ExampleLayer : public Gen::Layer
 {
 public:
@@ -9,12 +8,13 @@ public:
 
 	void OnUpdate() override
 	{
-		SQUAK_INFO("ExampleLayer::Update");
+		//SQUAK_INFO("ExampleLayer::Update");
 	}
 
 	void OnEvent(Gen::Event& event) override
 	{
-		SQUAK_TRACE("{0}", event);
+
+		//SQUAK_INFO("{0}", event);
 	}
 
 };
@@ -25,6 +25,7 @@ public:
 	Sandbox():Application()
 	{
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Gen::ImGuiLayer());
 	}
 	~Sandbox(){}
 };

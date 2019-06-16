@@ -79,12 +79,12 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>GenPCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>GEN_PLATFORM_WINDOWS;GEN_BUILD_DLL;GEN_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ProGEN_Itersrc;ThirdParty\spdlog\include;ThirdParty\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GEN_PLATFORM_WINDOWS;GEN_BUILD_DLL;GLFW_INCLUDE_NONE;GEN_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -102,8 +102,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>GenPCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>GEN_PLATFORM_WINDOWS;GEN_BUILD_DLL;GEN_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ProGEN_Itersrc;ThirdParty\spdlog\include;ThirdParty\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GEN_PLATFORM_WINDOWS;GEN_BUILD_DLL;GLFW_INCLUDE_NONE;GEN_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -129,8 +129,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>GenPCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>GEN_PLATFORM_WINDOWS;GEN_BUILD_DLL;GEN_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ProGEN_Itersrc;ThirdParty\spdlog\include;ThirdParty\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GEN_PLATFORM_WINDOWS;GEN_BUILD_DLL;GLFW_INCLUDE_NONE;GEN_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -162,10 +162,13 @@
     <ClInclude Include="src\GenPCH.h" />
     <ClInclude Include="src\Layer.h" />
     <ClInclude Include="src\LayerStack.h" />
+    <ClInclude Include="src\Platform\OpenGL\imGuiGLFW_Events.h" />
+    <ClInclude Include="src\Platform\OpenGL\imGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Progenitor.h" />
     <ClInclude Include="src\Squak.h" />
     <ClInclude Include="src\Window.h" />
-    <ClInclude Include="src\WindowsWindow.h" />
+    <ClInclude Include="src\imguiLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
@@ -174,12 +177,21 @@
     </ClCompile>
     <ClCompile Include="src\Layer.cpp" />
     <ClCompile Include="src\LayerStack.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\imGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\imGuiGLFW_Events.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Squak.cpp" />
-    <ClCompile Include="src\WindowsWindow.cpp" />
+    <ClCompile Include="src\imguiLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="ThirdParty\GLFW\GLFW.vcxproj">
       <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="ThirdParty\Glad\Glad.vcxproj">
+      <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="ThirdParty\imgui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
