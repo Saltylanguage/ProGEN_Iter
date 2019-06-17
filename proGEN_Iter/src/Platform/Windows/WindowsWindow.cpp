@@ -66,7 +66,7 @@ namespace Gen
 			windowData.Width = width;
 			windowData.Height = height;
 
-			WindowResizeEvent resizeEvent = WindowResizeEvent(width, height);
+			WindowResizedEvent resizeEvent = WindowResizedEvent(width, height);
 			windowData.EventCallback(resizeEvent);
 		});
 
@@ -91,7 +91,7 @@ namespace Gen
 			}
 			case GLFW_RELEASE:
 			{
-				KeyReleaseEvent releaseEvent(key);
+				KeyReleasedEvent releaseEvent(key);
 				windowData.EventCallback(releaseEvent);
 				break;
 			}
@@ -134,7 +134,7 @@ namespace Gen
 		{
 			WindowData& windowData = *(WindowData*)glfwGetWindowUserPointer(window);
 
-			MouseScrollEvent scrollEvent((float)xOffset, (float)yOffset);
+			MouseScrolledEvent scrollEvent((float)xOffset, (float)yOffset);
 			windowData.EventCallback(scrollEvent);
 		});
 

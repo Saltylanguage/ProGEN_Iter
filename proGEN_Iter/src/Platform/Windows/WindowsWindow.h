@@ -6,34 +6,34 @@
 
 namespace Gen
 {
-	struct WindowData
-	{
-		std::string Title;
-		unsigned int Width, Height;
-		bool VSync;
-
-		EventCallbackFn EventCallback;
-	};
-
 	class GEN_API WindowsWindow : public Window
 	{
 	public:
 		WindowsWindow(const WindowProps& props);
 		virtual ~WindowsWindow();
 
-		void OnUpdate() override;
+		virtual void OnUpdate() override;
 
-		inline unsigned int GetWidth() const override { return m_Data.Width; }
-		inline unsigned int GetHeight() const override { return m_Data.Height; }
+		virtual inline unsigned int GetWidth() const override { return m_Data.Width; }
+		virtual inline unsigned int GetHeight() const override { return m_Data.Height; }
 
-		inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
-		void SetVSync(bool enabled) override;
+		virtual inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
+		virtual void SetVSync(bool enabled) override;
 		
-		inline bool IsVSync() const override { return m_Data.VSync; }
+		virtual inline bool IsVSync() const override { return m_Data.VSync; }
 
-
+		virtual inline void* GetNativeWindow() const { return m_Window; }
 
 	private:
+
+		struct WindowData
+		{
+			std::string Title;
+			unsigned int Width, Height;
+			bool VSync;
+
+			EventCallbackFn EventCallback;
+		};
 		virtual void Init(const WindowProps& props);
 		virtual void Shutdown();
 

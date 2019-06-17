@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "Squak.h"
 #include <Glad/glad.h>
+#include "Platform/Windows/WindowsKeys.h"
 
 namespace Gen
 {
@@ -13,7 +14,6 @@ namespace Gen
 		s_Instance = this;
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
-		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
 	}
 	Application::~Application(){}
 
@@ -51,6 +51,16 @@ namespace Gen
 			{
 				layer->OnUpdate();
 			}
+
+			bool isPressed = Input::IsKeyPressed(GEN_KEY_BACKSPACE);
+			if (isPressed)
+			{
+				SQUAK_CORE_TRACE("Key was Pressed.... Polling works!");
+				auto[x, y] = Input::GetMousePos();
+				SQUAK_CORE_TRACE("{0}, {1}", x, y);
+			}
+
+
 			m_Window->OnUpdate();
 		}
 	}

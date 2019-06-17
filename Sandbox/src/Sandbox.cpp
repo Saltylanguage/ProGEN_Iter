@@ -1,5 +1,7 @@
 #include <Progenitor.h>
 
+
+
 class ExampleLayer : public Gen::Layer
 {
 public:
@@ -11,9 +13,11 @@ public:
 		//SQUAK_INFO("ExampleLayer::Update");
 	}
 
+	void OnAttach() {}
+	void OnDetach() {}
+
 	void OnEvent(Gen::Event& event) override
 	{
-
 		//SQUAK_INFO("{0}", event);
 	}
 
@@ -24,8 +28,15 @@ class Sandbox : public Gen::Application
 public:
 	Sandbox():Application()
 	{
-		PushLayer(new ExampleLayer());
+		//PushLayer(new ExampleLayer());
 		PushOverlay(new Gen::ImGuiLayer());
+		Application::Get().GetWindow().SetEventCallback((BIND_EVENT_FN(Sandbox::OnEvent)));
+		
+	}
+	void OnEvent(Gen::Event& e)
+	{
+		//SQUAK_INFO("{0}", e);
+		Application::OnEvent(e);
 	}
 	~Sandbox(){}
 };

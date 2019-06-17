@@ -31,10 +31,17 @@
       <Filter>Events</Filter>
     </ClInclude>
     <ClInclude Include="src\GenPCH.h" />
+    <ClInclude Include="src\Input.h" />
     <ClInclude Include="src\Layer.h" />
     <ClInclude Include="src\LayerStack.h" />
+    <ClInclude Include="src\Platform\OpenGL\imGuiGLFW_Events.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\imGuiOpenGLRenderer.h">
       <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
@@ -43,8 +50,8 @@
     <ClInclude Include="src\Squak.h" />
     <ClInclude Include="src\Window.h" />
     <ClInclude Include="src\imguiLayer.h" />
-    <ClInclude Include="src\Platform\OpenGL\imGuiGLFW_Events.h">
-      <Filter>Platform\OpenGL</Filter>
+    <ClInclude Include="src\Platform\Windows\WindowsKeys.h">
+      <Filter>Platform\Windows</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -52,16 +59,19 @@
     <ClCompile Include="src\GenPCH.cpp" />
     <ClCompile Include="src\Layer.cpp" />
     <ClCompile Include="src\LayerStack.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\imGuiGLFW_Events.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\imGuiOpenGLRenderer.cpp">
       <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Squak.cpp" />
     <ClCompile Include="src\imguiLayer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\imGuiGLFW_Events.cpp">
-      <Filter>Platform\OpenGL</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

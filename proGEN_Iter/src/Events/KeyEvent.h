@@ -34,10 +34,10 @@ namespace Gen
 		
 	};
 
-	class GEN_API KeyReleaseEvent : public KeyEvent
+	class GEN_API KeyReleasedEvent : public KeyEvent
 	{
 	public:
-		KeyReleaseEvent(int keyCode) : KeyEvent(keyCode) {}
+		KeyReleasedEvent(int keyCode) : KeyEvent(keyCode) {}
 
 		std::string ToString() const override
 		{

@@ -22,4 +22,4 @@ project "Glad"
         staticruntime "On"
 
     filter { "system:windows", "configurations:Release" }
-        buildoptions "/MD"
+        runtime "Release"

@@ -11,7 +11,7 @@ int main(int argc, char** argv)
 
 	auto app = Gen::CreateApplication();
 	// ========================================================================
-	//			WRITE YOUR GAME LOOP INSIE THE app->Run() FUNCTION
+	//			WRITE YOUR GAME LOOP INSIDE THE app->Run() FUNCTION
 	// ========================================================================
 	app->Run();
 	delete app;

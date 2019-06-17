@@ -33,6 +33,9 @@ namespace Gen
 #define SQUAK_WARNING(...)			::Gen::Squak::GetClientLogger()->warn(__VA_ARGS__)
 #define SQUAK_ERROR(...)			::Gen::Squak::GetClientLogger()->error(__VA_ARGS__)
 #define SQUAK_FATAL(...)			::Gen::Squak::GetClientLogger()->critical(__VA_ARGS__)
+
+
+
 #endif
 
 #ifndef GEN_DEBUG

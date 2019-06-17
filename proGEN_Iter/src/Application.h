@@ -4,6 +4,7 @@
 #include "LayerStack.h"
 #include "Events/ApplicationEvent.h"
 #include "Window.h"
+#include "Input.h"
 
 namespace Gen
 {

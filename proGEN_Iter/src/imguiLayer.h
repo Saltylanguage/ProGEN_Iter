@@ -19,17 +19,17 @@ namespace Gen
 
 
 	private:
-		bool OnMouseButtonPressedEvent(MouseButtonEvent& e);
-		bool OnMouseButtonReleasedEvent(MouseButtonEvent& e);
-		bool OnMouseMovedEvent(MouseMoveEvent& e);
-		bool OnMouseScrolledEvent(MouseScrollEvent& e);
+		bool OnMouseButtonPressedEvent(MouseButtonEvent& e) override;
+		bool OnMouseButtonReleasedEvent(MouseButtonEvent& e) override;
+		bool OnMouseMovedEvent(MouseMoveEvent& e) override;
+		bool OnMouseScrolledEvent(MouseScrolledEvent& e) override;
 		
-		bool OnKeyPressedEvent(KeyPressedEvent& e);
-		bool OnKeyReleasedEvent(KeyReleaseEvent& e);
-		bool OnKeyTypedEvent(KeyTypedEvent& e);
+		bool OnKeyPressedEvent(KeyPressedEvent& e) override;
+		bool OnKeyReleasedEvent(KeyReleasedEvent& e) override;
+		bool OnKeyTypedEvent(KeyTypedEvent& e) override;
 		
-		bool OnWindowResizedEvent(WindowResizeEvent& e);
-		bool OnWindowClosedEvent(KeyTypedEvent& e);
+		bool OnWindowResizedEvent(WindowResizedEvent& e) override;
+		bool OnWindowClosedEvent(KeyTypedEvent& e) override;
 
 
 	private:

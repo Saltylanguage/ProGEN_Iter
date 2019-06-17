@@ -27,10 +27,10 @@ namespace Gen
 		float m_MouseY;
 	};
 
-	class GEN_API MouseScrollEvent : public Event
+	class GEN_API MouseScrolledEvent : public Event
 	{
 	public:
-		MouseScrollEvent(float xOffset, float yOffset) : m_XOffset(xOffset), m_YOffset(yOffset) {}
+		MouseScrolledEvent(float xOffset, float yOffset) : m_XOffset(xOffset), m_YOffset(yOffset) {}
 
 		inline float GetXOffset() const { return m_XOffset; }
 		inline float GetYOffset() const { return m_YOffset; }
