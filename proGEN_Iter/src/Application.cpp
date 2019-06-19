@@ -1,8 +1,12 @@
+// PRECOMPILED HEADER
 #include "GenPCH.h"
+
+// GEN HEADERS
 #include "Application.h"
-#include "Squak.h"
+#include "Events/ApplicationEvent.h"
+
+// EXTERNALS
 #include <Glad/glad.h>
-#include "Platform/Windows/WindowsKeys.h"
 
 namespace Gen
 {
@@ -45,21 +49,12 @@ namespace Gen
 	{
 		while (m_Running)
 		{
-			glClearColor(1, 0, 1, 1);
+			glClearColor(0.1, 0.1, 0.1, 0.1);
 			glClear(GL_COLOR_BUFFER_BIT);
 			for (Layer* layer : m_LayerStack)
 			{
 				layer->OnUpdate();
 			}
-
-			bool isPressed = Input::IsKeyPressed(GEN_KEY_BACKSPACE);
-			if (isPressed)
-			{
-				SQUAK_CORE_TRACE("Key was Pressed.... Polling works!");
-				auto[x, y] = Input::GetMousePos();
-				SQUAK_CORE_TRACE("{0}, {1}", x, y);
-			}
-
 
 			m_Window->OnUpdate();
 		}

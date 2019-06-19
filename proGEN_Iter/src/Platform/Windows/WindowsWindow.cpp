@@ -1,12 +1,18 @@
+// PRECOMPILED HEADER
 #include "GenPCH.h"
+
+// GEN HEADERS
 #include "WindowsWindow.h"
 #include "Squak.h"
 
+// EVENTS
 #include "Events/ApplicationEvent.h"
 #include "Events/KeyEvent.h"
 #include "Events/MouseEvent.h"
 
+// EXTERNALS
 #include <Glad/glad.h>
+#include "GLFW/glfw3.h"
 
 namespace Gen
 {

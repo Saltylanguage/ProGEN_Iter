@@ -1,8 +1,5 @@
 #pragma once
 #include "Layer.h"
-#include "Events/MouseEvent.h"
-#include "Events/ApplicationEvent.h"
-#include "Events/KeyEvent.h"
 
 namespace Gen
 {
@@ -12,26 +9,24 @@ namespace Gen
 		ImGuiLayer();
 		~ImGuiLayer();
 
-		void OnAttach() override;
-		void OnDetach() override;
-		void OnUpdate() override;
-		void OnEvent(Event& event) override;
-
+		virtual void OnAttach() override;
+		virtual void OnDetach() override;
+		virtual void OnUpdate() override;
+		virtual void OnEvent(Event& event) override;
 
 	private:
-		bool OnMouseButtonPressedEvent(MouseButtonEvent& e) override;
-		bool OnMouseButtonReleasedEvent(MouseButtonEvent& e) override;
-		bool OnMouseMovedEvent(MouseMoveEvent& e) override;
-		bool OnMouseScrolledEvent(MouseScrolledEvent& e) override;
+		virtual bool OnMouseButtonPressedEvent(MouseButtonEvent& e) override;
+		virtual bool OnMouseButtonReleasedEvent(MouseButtonEvent& e) override;
+		virtual bool OnMouseMovedEvent(MouseMoveEvent& e) override;
+		virtual bool OnMouseScrolledEvent(MouseScrolledEvent& e) override;
 		
-		bool OnKeyPressedEvent(KeyPressedEvent& e) override;
-		bool OnKeyReleasedEvent(KeyReleasedEvent& e) override;
-		bool OnKeyTypedEvent(KeyTypedEvent& e) override;
+		virtual bool OnKeyPressedEvent(KeyPressedEvent& e) override;
+		virtual bool OnKeyReleasedEvent(KeyReleasedEvent& e) override;
+		virtual bool OnKeyTypedEvent(KeyTypedEvent& e) override;
 		
-		bool OnWindowResizedEvent(WindowResizedEvent& e) override;
-		bool OnWindowClosedEvent(KeyTypedEvent& e) override;
-
-
+		virtual bool OnWindowResizedEvent(WindowResizedEvent& e) override;
+		virtual bool OnWindowClosedEvent(WindowCloseEvent& e) override;
+		
 	private:
 		float m_Time = 0.0f;
 	};

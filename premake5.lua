@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "ProGEN_Iter/ThirdParty/GLFW/include"
 IncludeDir["Glad"] = "ProGEN_Iter/ThirdParty/Glad/include"
 IncludeDir["imgui"] = "ProGEN_Iter/ThirdParty/imgui"
+IncludeDir["glm"] = "ProGEN_Iter/ThirdParty/glm"
 
 include "ProGEN_Iter/ThirdParty/GLFW"
 include "ProGEN_Iter/ThirdParty/Glad"
@@ -38,7 +39,9 @@ project "ProGEN_Iter"
     files
     {
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp",
+        "%{prj.name}/ThirdParty/glm/glm **.hpp",
+        "%{prj.name}/ThirdParty/glm/glm **.inl"
     }
 
     includedirs 
@@ -47,7 +50,8 @@ project "ProGEN_Iter"
         "%{prj.name}/ThirdParty/spdlog/include",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
-        "%{IncludeDir.imgui}"
+        "%{IncludeDir.imgui}",
+        "%{IncludeDir.glm}"
     }
 
     links
@@ -108,7 +112,8 @@ project "Sandbox"
     includedirs
     {
         "ProGEN_Iter/ThirdParty/spdlog/include",
-        "ProGEN_Iter/src"
+        "ProGEN_Iter/src",
+        "%{IncludeDir.glm}"
     }
 
     links

@@ -1,6 +1,5 @@
 #include "GenPCH.h"
 #include "WindowsInput.h"
-
 #include "GLFW/glfw3.h"
 #include "Application.h"
 

@@ -1,10 +1,9 @@
 #pragma once
-#include "Core.h"
-#include "Events/Event.h"
+#include "GenPCH.h"
 
 namespace Gen
 {
-
+	class Event;
 	class MouseButtonEvent;
 	class MouseMoveEvent;
 	class MouseScrolledEvent;
@@ -14,12 +13,13 @@ namespace Gen
 	class KeyTypedEvent;
 
 	class WindowResizedEvent;
+	class WindowCloseEvent;
 
 	class GEN_API Layer
 	{
 	public:
-		Layer(const std::string& name = "Layer");
-		virtual ~Layer();
+		Layer(const std::string& name = "Layer") {};
+		virtual ~Layer() {};
 
 		virtual void OnAttach() = 0;
 		virtual void OnDetach() = 0;
@@ -37,7 +37,7 @@ namespace Gen
 		virtual bool OnKeyTypedEvent(KeyTypedEvent& e) { return false; }
 
 		virtual bool OnWindowResizedEvent(WindowResizedEvent& e) { return false; }
-		virtual bool OnWindowClosedEvent(KeyTypedEvent& e) { return false; }
+		virtual bool OnWindowClosedEvent(WindowCloseEvent& e) { return false; }
 
 		inline const std::string& GetName() const { return m_DebugName; }
 

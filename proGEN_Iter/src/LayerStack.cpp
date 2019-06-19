@@ -1,4 +1,5 @@
 #include "GenPCH.h"
+#include "Layer.h"
 #include "LayerStack.h"
 
 namespace Gen

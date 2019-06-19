@@ -7,3 +7,6 @@
 [submodule "ProGEN_Iter/ThirdParty/imgui"]
 	path = ProGEN_Iter/ThirdParty/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "proGEN_Iter\\ThirdParty\\glm"]
+	path = proGEN_Iter\\ThirdParty\\glm
+	url = https://github.com/g-truc/glm

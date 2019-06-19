@@ -1,12 +1,23 @@
+// PRECOMPILED HEADER
 #include "GenPCH.h"
-#include "imguiLayer.h"
+
+// GEN HEADERS
 #include "Application.h"
+#include "imguiLayer.h"
+
+// EVENTS
+#include "Events/MouseEvent.h"
+#include "Events/ApplicationEvent.h"
+#include "Events/KeyEvent.h"
+
+// EXTERNALS
 #include "Platform/OpenGL/imGuiOpenGLRenderer.h"
 #include "Platform/OpenGL/imGuiGLFW_Events.h"
 
 // TEMPORARY
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
+
 
 namespace Gen
 {
@@ -50,7 +61,7 @@ namespace Gen
 		io.KeyMap[ImGuiKey_Y] = GLFW_KEY_Y;
 		io.KeyMap[ImGuiKey_Z] = GLFW_KEY_Z;
 
-		ImGui_ImplOpenGL3_Init("#version 410");
+		Imgui_Init("#version 410");
 	}
 
 	void ImGuiLayer::OnDetach()
@@ -60,14 +71,14 @@ namespace Gen
 
 	void UpdateFrame()
 	{
-		ImGui_ImplOpenGL3_NewFrame();
+		Imgui_NewFrame();
 		ImGui::NewFrame();
 	}
 
 	void Render()
 	{
 		ImGui::Render();
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+		ImGui_RenderDrawData(ImGui::GetDrawData());
 	}
 
 	void ImGuiLayer::OnUpdate()
@@ -171,7 +182,7 @@ namespace Gen
 		return false;
 	}
 
-	bool ImGuiLayer::OnWindowClosedEvent(KeyTypedEvent & e)
+	bool ImGuiLayer::OnWindowClosedEvent(WindowCloseEvent & e)
 	{
 		return false;
 	}

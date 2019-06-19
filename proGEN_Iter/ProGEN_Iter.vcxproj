@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>GenPCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GEN_PLATFORM_WINDOWS;GEN_BUILD_DLL;GLFW_INCLUDE_NONE;GEN_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;ThirdParty\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -100,7 +100,7 @@
       <PrecompiledHeaderFile>GenPCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GEN_PLATFORM_WINDOWS;GEN_BUILD_DLL;GLFW_INCLUDE_NONE;GEN_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;ThirdParty\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -127,7 +127,7 @@
       <PrecompiledHeaderFile>GenPCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GEN_PLATFORM_WINDOWS;GEN_BUILD_DLL;GLFW_INCLUDE_NONE;GEN_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;ThirdParty\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -163,7 +163,8 @@
     <ClInclude Include="src\Platform\OpenGL\imGuiGLFW_Events.h" />
     <ClInclude Include="src\Platform\OpenGL\imGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsKeys.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsKeyCodes.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsMouseCodes.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Progenitor.h" />
     <ClInclude Include="src\Squak.h" />
@@ -175,7 +176,6 @@
     <ClCompile Include="src\GenPCH.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Layer.cpp" />
     <ClCompile Include="src\LayerStack.cpp" />
     <ClCompile Include="src\Platform\OpenGL\imGuiGLFW_Events.cpp" />
     <ClCompile Include="src\Platform\OpenGL\imGuiOpenGLRenderer.cpp" />

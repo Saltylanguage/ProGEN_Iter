@@ -1,13 +1,11 @@
 #pragma once
-#include "Core.h"
-#include "Events/Event.h"
-#include "LayerStack.h"
-#include "Events/ApplicationEvent.h"
-#include "Window.h"
-#include "Input.h"
+#include "Progenitor.h"
 
 namespace Gen
 {
+	class WindowCloseEvent;
+
+	class Window;
 	class GEN_API Application
 	{
 	public:

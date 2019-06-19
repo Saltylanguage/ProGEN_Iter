@@ -1,8 +1,7 @@
 #pragma once
-#include "Core.h"
 #include "Window.h"
-#include "GLFW/glfw3.h"
 
+struct GLFWwindow;
 
 namespace Gen
 {

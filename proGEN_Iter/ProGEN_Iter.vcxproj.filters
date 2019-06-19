@@ -43,6 +43,12 @@
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsKeyCodes.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsMouseCodes.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
@@ -50,14 +56,10 @@
     <ClInclude Include="src\Squak.h" />
     <ClInclude Include="src\Window.h" />
     <ClInclude Include="src\imguiLayer.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsKeys.h">
-      <Filter>Platform\Windows</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\GenPCH.cpp" />
-    <ClCompile Include="src\Layer.cpp" />
     <ClCompile Include="src\LayerStack.cpp" />
     <ClCompile Include="src\Platform\OpenGL\imGuiGLFW_Events.cpp">
       <Filter>Platform\OpenGL</Filter>
