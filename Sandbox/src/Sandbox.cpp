@@ -5,7 +5,7 @@ class Sandbox : public Gen::Application
 public:
 	Sandbox():Application()
 	{
-		PushOverlay(new Gen::ImGuiLayer());
+		//PushOverlay(new Gen::ImGuiLayer());
 		Application::Get().GetWindow().SetEventCallback((BIND_EVENT_FN(Sandbox::OnEvent)));
 		
 	}

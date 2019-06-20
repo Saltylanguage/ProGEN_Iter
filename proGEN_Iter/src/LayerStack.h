@@ -1,10 +1,12 @@
 #pragma once
 #include "Core.h"
 #include <vector>
+#include "Layer.h"
+
 
 namespace Gen
 {
-	class Layer;
+	
 	class GEN_API LayerStack
 	{
 	public:
@@ -21,6 +23,6 @@ namespace Gen
 
 	private:
 		std::vector<Layer*> m_Layers;
-		std::vector<Layer*>::iterator m_LayerInsert;
+		unsigned int m_LayerInsertIndex = 0;
 	};
 }

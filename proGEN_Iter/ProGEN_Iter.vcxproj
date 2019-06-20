@@ -160,8 +160,6 @@
     <ClInclude Include="src\Input.h" />
     <ClInclude Include="src\Layer.h" />
     <ClInclude Include="src\LayerStack.h" />
-    <ClInclude Include="src\Platform\OpenGL\imGuiGLFW_Events.h" />
-    <ClInclude Include="src\Platform\OpenGL\imGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsKeyCodes.h" />
     <ClInclude Include="src\Platform\Windows\WindowsMouseCodes.h" />
@@ -178,8 +176,6 @@
     </ClCompile>
     <ClCompile Include="src\ImGuiBuild.cpp" />
     <ClCompile Include="src\LayerStack.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\imGuiGLFW_Events.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\imGuiOpenGLRenderer.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Squak.cpp" />
@@ -199,4 +195,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project> 
+</Project>

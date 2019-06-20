@@ -21,23 +21,11 @@ namespace Gen
 		Layer(const std::string& name = "Layer") {};
 		virtual ~Layer() {};
 
-		virtual void OnAttach() = 0;
-		virtual void OnDetach() = 0;
-		virtual void OnUpdate() = 0;
-		virtual void OnEvent(Event& event) = 0;
-
-	private:
-		virtual bool OnMouseButtonPressedEvent(MouseButtonEvent& e) { return false; }
-		virtual bool OnMouseButtonReleasedEvent(MouseButtonEvent& e) { return false; }
-		virtual bool OnMouseMovedEvent(MouseMoveEvent& e) { return false; }
-		virtual bool OnMouseScrolledEvent(MouseScrolledEvent& e) { return false; }
-
-		virtual bool OnKeyPressedEvent(KeyPressedEvent& e) { return false; }
-		virtual bool OnKeyReleasedEvent(KeyReleasedEvent& e) { return false; }
-		virtual bool OnKeyTypedEvent(KeyTypedEvent& e) { return false; }
-
-		virtual bool OnWindowResizedEvent(WindowResizedEvent& e) { return false; }
-		virtual bool OnWindowClosedEvent(WindowCloseEvent& e) { return false; }
+		virtual void OnAttach(){};
+		virtual void OnDetach(){};
+		virtual void OnUpdate(){};
+		virtual void OnImGuiRender() {};
+		virtual void OnEvent(Event& event) {};
 
 		inline const std::string& GetName() const { return m_DebugName; }
 
