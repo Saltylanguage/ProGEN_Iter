@@ -77,3 +77,18 @@ namespace Gen
 		return true;
 	}
 }
+
+int main(int argc, char** argv)
+{
+	Gen::Squak::Init();
+
+	printf("Engine Features Loading...\n");
+
+	auto app = Gen::CreateApplication();
+	// ========================================================================
+	//			WRITE YOUR GAME LOOP INSIDE THE app->Run() FUNCTION
+	// ========================================================================
+	app->Run();
+	delete app;
+	return 0;
+}
